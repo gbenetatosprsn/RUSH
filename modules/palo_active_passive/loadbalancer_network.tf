@@ -33,7 +33,7 @@ resource "azurerm_lb_probe" "ext_p_lbingress_probe" {
   name                = "TCP-443"
   loadbalancer_id     = azurerm_lb.ext_p_lbingress.id
   port                = 443
-  protocol            = "TCP"
+  protocol            = "Tcp"
   #request_path        = "/php/login.php"
   interval_in_seconds = 5
   #number_of_probes    = 2
