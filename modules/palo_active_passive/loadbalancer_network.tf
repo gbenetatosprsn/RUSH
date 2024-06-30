@@ -30,28 +30,28 @@ resource "azurerm_lb_backend_address_pool" "ext_p_lbingress_backend_address_pool
 }
 
 resource "azurerm_lb_probe" "ext_p_lbingress_probe" {
-  name                = "TCP-443"
+  name                = "Tcp-443"
   loadbalancer_id     = azurerm_lb.ext_p_lbingress.id
   port                = 443
-  protocol            = "TCP"
+  protocol            = "Tcp"
   #request_path        = "/php/login.php"
   interval_in_seconds = 5
   #number_of_probes    = 2
 }
 
-resource "azurerm_lb_rule" "ext_p_tcp" {
-  count                          = length(var.inbound_tcp_ports)
-  name                           = "tcp-${element(var.inbound_tcp_ports, count.index)}"
+resource "azurerm_lb_rule" "ext_p_Tcp" {
+  count                          = length(var.inbound_Tcp_ports)
+  name                           = "Tcp-${element(var.inbound_Tcp_ports, count.index)}"
   loadbalancer_id                = azurerm_lb.ext_p_lbingress.id
   protocol                       = "Tcp"
-  frontend_port                  = element(var.inbound_tcp_ports, count.index)
-  backend_port                   = element(var.inbound_tcp_ports, count.index)
+  frontend_port                  = element(var.inbound_Tcp_ports, count.index)
+  backend_port                   = element(var.inbound_Tcp_ports, count.index)
   frontend_ip_configuration_name = "PublicIPAddress"
   backend_address_pool_ids       = [azurerm_lb_backend_address_pool.ext_p_lbingress_backend_address_pool.id]
   probe_id                       = azurerm_lb_probe.ext_p_lbingress_probe.id
   enable_floating_ip             = false
   disable_outbound_snat          = true
-  enable_tcp_reset               = false
+  enable_Tcp_reset               = false
   load_distribution              = "SourceIPProtocol"
 }
 
@@ -67,7 +67,7 @@ resource "azurerm_lb_rule" "ext_p_udp" {
   probe_id                       = azurerm_lb_probe.ext_p_lbingress_probe.id
   enable_floating_ip             = false
   disable_outbound_snat          = true
-  enable_tcp_reset               = false
+  enable_Tcp_reset               = false
   load_distribution              = "SourceIPProtocol"
 }
 
@@ -114,28 +114,28 @@ resource "azurerm_lb_backend_address_pool" "ext_q_lbingress_backend_address_pool
 
 
 resource "azurerm_lb_probe" "ext_q_lbingress_probe" {
-  name                = "TCP-443"
+  name                = "Tcp-443"
   loadbalancer_id     = azurerm_lb.ext_q_lbingress.id
   port                = 443
-  protocol            = "TCP"
+  protocol            = "Tcp"
   #request_path        = "/php/login.php"
   interval_in_seconds = 5
   #number_of_probes    = 2
 }
 
-resource "azurerm_lb_rule" "ext_q_tcp" {
-  count                          = length(var.inbound_tcp_ports)
-  name                           = "tcp-${element(var.inbound_tcp_ports, count.index)}"
+resource "azurerm_lb_rule" "ext_q_Tcp" {
+  count                          = length(var.inbound_Tcp_ports)
+  name                           = "Tcp-${element(var.inbound_Tcp_ports, count.index)}"
   loadbalancer_id                = azurerm_lb.ext_q_lbingress.id
   protocol                       = "Tcp"
-  frontend_port                  = element(var.inbound_tcp_ports, count.index)
-  backend_port                   = element(var.inbound_tcp_ports, count.index)
+  frontend_port                  = element(var.inbound_Tcp_ports, count.index)
+  backend_port                   = element(var.inbound_Tcp_ports, count.index)
   frontend_ip_configuration_name = "PublicIPAddress"
   backend_address_pool_ids       = [azurerm_lb_backend_address_pool.ext_q_lbingress_backend_address_pool.id]
   probe_id                       = azurerm_lb_probe.ext_q_lbingress_probe.id
   enable_floating_ip             = false
   disable_outbound_snat          = true
-  enable_tcp_reset               = false
+  enable_Tcp_reset               = false
   load_distribution              = "SourceIPProtocol"
 }
 
@@ -151,7 +151,7 @@ resource "azurerm_lb_rule" "ext_q_udp" {
   probe_id                       = azurerm_lb_probe.ext_q_lbingress_probe.id
   enable_floating_ip             = false
   disable_outbound_snat          = true
-  enable_tcp_reset               = false
+  enable_Tcp_reset               = false
   load_distribution              = "SourceIPProtocol"
 }
 
@@ -184,10 +184,10 @@ resource "azurerm_lb" "ext_p_lbegress" {
 }
 
 resource "azurerm_lb_probe" "ext_p_lbegress_probe" {
-  name                = "TCP-443"
+  name                = "Tcp-443"
   loadbalancer_id     = azurerm_lb.ext_p_lbegress.id
   port                = 443
-  protocol            = "TCP"
+  protocol            = "Tcp"
   #request_path        = "/php/login.php"
   interval_in_seconds = 5
   #number_of_probes    = 2
@@ -239,10 +239,10 @@ resource "azurerm_lb" "ext_q_lbegress" {
 }
 
 resource "azurerm_lb_probe" "ext_q_lbegress_probe" {
-  name                = "TCP-443"
+  name                = "Tcp-443"
   loadbalancer_id     = azurerm_lb.ext_q_lbegress.id
   port                = 443
-  protocol            = "TCP"
+  protocol            = "Tcp"
   #request_path        = "/php/login.php"
   interval_in_seconds = 5
   #number_of_probes    = 2
@@ -296,10 +296,10 @@ resource "azurerm_lb" "int_p_lbegress" {
 }
 
 resource "azurerm_lb_probe" "int_p_lbegress_probe" {
-  name                = "TCP-443"
+  name                = "Tcp-443"
   loadbalancer_id     = azurerm_lb.int_p_lbegress.id
   port                = 443
-  protocol            = "TCP"
+  protocol            = "Tcp"
   #request_path        = "/php/login.php"
   interval_in_seconds = 5
   #number_of_probes    = 2
@@ -351,10 +351,10 @@ resource "azurerm_lb" "int_q_lbegress" {
 }
 
 resource "azurerm_lb_probe" "int_q_lbegress_probe" {
-  name                = "TCP-443"
+  name                = "Tcp-443"
   loadbalancer_id     = azurerm_lb.int_q_lbegress.id
   port                = 443
-  protocol            = "TCP"
+  protocol            = "Tcp"
   #request_path        = "/php/login.php"
   interval_in_seconds = 5
   #number_of_probes    = 2
