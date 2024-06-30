@@ -12,13 +12,13 @@ variable "environment" {
 variable "location" {
   description = "(Required) the location to build in"
   type        = string
-  default     = "eastus"
+  default     = "centralus"
 }
 
 variable "location_short" {
   description = "(Required) the location to build in, short name"
   type        = string
-  default     = "e"
+  default     = "cus"
 }
 
 variable "function" {
