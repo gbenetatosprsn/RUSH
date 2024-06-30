@@ -1,10 +1,10 @@
 locals {
-  coid           = "cnry"
+  coid           = "rush"
   environment    = "prod"
-  location       = "eastus"
-  location_short = "e"
+  location       = "centralus"
+  location_short = "cus"
   function       = "hub"
 
-  hub_address_space         = ["100.71.64.0/24"]
-  virtual_wan_address_space = ["100.71.65.0/24"]
+  hub_address_space         = ["10.41.1.0/24"]
+  virtual_wan_address_space = ["10.41.2.0/24"]
 }

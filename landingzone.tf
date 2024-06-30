@@ -13,11 +13,11 @@ module "palo_active_passive" {
 
   hub_address_space         = local.hub_address_space
   virtual_wan_address_space = local.virtual_wan_address_space
-  mgmt_space_prefix         = [cidrsubnet(local.hub_address_space[0], 4, 0)]
-  ha2_space_prefix          = [cidrsubnet(local.hub_address_space[0], 4, 1)]
-  private_space_prefix      = [cidrsubnet(local.hub_address_space[0], 4, 2)]
-  public_space_prefix       = [cidrsubnet(local.hub_address_space[0], 4, 3)]
-  lb_space_prefix           = [cidrsubnet(local.hub_address_space[0], 4, 4)]
+  mgmt_space_prefix         = [cidrsubnet(local.hub_address_space[0], 3, 0)]
+  public_space_prefix       = [cidrsubnet(local.hub_address_space[0], 3, 1)]
+  private_space_prefix      = [cidrsubnet(local.hub_address_space[0], 3, 2)]
+  ha2_space_prefix          = [cidrsubnet(local.hub_address_space[0], 3, 3)]
+  lb_space_prefix           = [cidrsubnet(local.hub_address_space[0], 3, 4)]
   resource_group_networking = azurerm_resource_group.resource_group_networking00
   resource_group_compute    = azurerm_resource_group.resource_group_compute00
 

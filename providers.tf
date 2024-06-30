@@ -1,12 +1,5 @@
 terraform {
-  backend "remote" {
-    hostname     = "app.terraform.io"
-    organization = "Protera"
 
-    workspaces {
-      name = "rush-Connectivity-e445f27b-cdde-47cd-bb0a-4c1cd8009d06"
-    }
-  }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
