@@ -216,7 +216,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "ext_p_egr
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_p_lbegress_backend_address_pool.id
 }
 
-resource "azurerm_network_interface_backend_address_pool_association" "ext_p_egress_backend00" {
+resource "azurerm_network_interface_backend_address_pool_association" "ext_p_egress_backend01" {
   network_interface_id    = azurerm_network_interface.ext_p_trust01.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_p_lbegress_backend_address_pool.id
@@ -271,7 +271,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "ext_q_egr
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_q_lbegress_backend_address_pool.id
 }
 
-resource "azurerm_network_interface_backend_address_pool_association" "ext_q_egress_backend00" {
+resource "azurerm_network_interface_backend_address_pool_association" "ext_q_egress_backend01" {
   network_interface_id    = azurerm_network_interface.ext_q_trust01.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_q_lbegress_backend_address_pool.id
@@ -328,7 +328,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "int_p_egr
   backend_address_pool_id = azurerm_lb_backend_address_pool.int_p_lbegress_backend_address_pool.id
 }
 
-resource "azurerm_network_interface_backend_address_pool_association" "int_p_egress_backend00" {
+resource "azurerm_network_interface_backend_address_pool_association" "int_p_egress_backend01" {
   network_interface_id    = azurerm_network_interface.int_p_trust01.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.int_p_lbegress_backend_address_pool.id
@@ -383,7 +383,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "int_q_egr
   backend_address_pool_id = azurerm_lb_backend_address_pool.int_q_lbegress_backend_address_pool.id
 }
 
-resource "azurerm_network_interface_backend_address_pool_association" "int_q_egress_backend00" {
+resource "azurerm_network_interface_backend_address_pool_association" "int_q_egress_backend01" {
   network_interface_id    = azurerm_network_interface.int_q_trust01.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.int_q_lbegress_backend_address_pool.id
