@@ -307,22 +307,22 @@ resource "azurerm_network_interface_security_group_association" "int_q_managemen
 
 ##External FW
 
-resource "azurerm_network_interface_security_group_association" "int_p_mgmt00" {
+resource "azurerm_network_interface_security_group_association" "ext_p_mgmt00" {
   network_interface_id      = azurerm_network_interface.ext_p_management00.id
   network_security_group_id = azurerm_network_security_group.ext_management00.id
 }
 
-resource "azurerm_network_interface_security_group_association" "int_p_mgmt01" {
+resource "azurerm_network_interface_security_group_association" "ext_p_mgmt01" {
   network_interface_id      = azurerm_network_interface.ext_p_management01.id
   network_security_group_id = azurerm_network_security_group.ext_management00.id
 }
 
-resource "azurerm_network_interface_security_group_association" "int_q_mgmt00" {
+resource "azurerm_network_interface_security_group_association" "ext_q_mgmt00" {
   network_interface_id      = azurerm_network_interface.ext_q_management00.id
   network_security_group_id = azurerm_network_security_group.ext_management00.id
 }
 
-resource "azurerm_network_interface_security_group_association" "int_q_mgmt" {
+resource "azurerm_network_interface_security_group_association" "ext_q_mgmt01" {
   network_interface_id      = azurerm_network_interface.ext_p_management01.id
   network_security_group_id = azurerm_network_security_group.ext_management00.id
 }
