@@ -100,7 +100,7 @@ resource "azurerm_public_ip" "ext_natgw_pip" {
 # Build NAT Gateway
 
 resource "azurerm_nat_gateway" "ext_natgw" {
-  name                    = "nat-Gateway"
+  name                    = "rush-natgw-extnatgw-p-${var.location_short}-00"
   location                = var.resource_group_networking.location
   resource_group_name     = var.resource_group_networking.name
   sku_name                = "Standard"
