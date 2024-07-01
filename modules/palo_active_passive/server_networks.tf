@@ -221,21 +221,83 @@ resource "azurerm_network_security_group" "int_management00" {
     protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "*"
-    source_address_prefixes    = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "52.147.201.44/32", "207.223.34.132"]
+    source_address_prefixes    = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
     destination_address_prefix = "*"
   }
 
   security_rule {
-    name                       = "default-access-outbound"
+    name                       = "Allow-To-DNS"
     priority                   = 100
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "53"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "Allow-To-HA"
+    priority                   = 150
     direction                  = "Outbound"
     access                     = "Allow"
     protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "*"
     source_address_prefix      = "*"
+    destination_address_prefixes = ["10.41.1.68","10.41.1.69","10.41.1.70","10.41.1.71"]
+  }
+
+  security_rule {
+    name                       = "Allow-To-Mail"
+    priority                   = 200
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "25"
+    source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+
+  security_rule {
+    name                       = "Allow-To-LDAP"
+    priority                   = 250
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "389"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "Allow-To-Panorama"
+    priority                   = 300
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "10.0.0.0/8"
+  }
+
+  security_rule {
+    name                       = "Block-Private-Ranges"
+    priority                   = 1000
+    direction                  = "Outbound"
+    access                     = "Deny"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefixes = ["10.0.0.0/8","192.168.0.0/16","172.16.0.0/12"]
+  }
+
+  
 }
 
 
@@ -265,21 +327,83 @@ resource "azurerm_network_security_group" "ext_management00" {
     protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "*"
-    source_address_prefixes    = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "52.147.201.44/32", "207.223.34.132"]
+    source_address_prefixes    = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
     destination_address_prefix = "*"
   }
 
   security_rule {
-    name                       = "default-access-outbound"
+    name                       = "Allow-To-DNS"
     priority                   = 100
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "53"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "Allow-To-HA"
+    priority                   = 150
     direction                  = "Outbound"
     access                     = "Allow"
     protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "*"
     source_address_prefix      = "*"
+    destination_address_prefixes = ["10.41.1.72","10.41.1.73","10.41.1.74","10.41.1.75"]
+  }
+
+  security_rule {
+    name                       = "Allow-To-Mail"
+    priority                   = 200
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "25"
+    source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+
+  security_rule {
+    name                       = "Allow-To-LDAP"
+    priority                   = 250
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "389"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "Allow-To-Panorama"
+    priority                   = 300
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "10.0.0.0/8"
+  }
+
+  security_rule {
+    name                       = "Block-Private-Ranges"
+    priority                   = 1000
+    direction                  = "Outbound"
+    access                     = "Deny"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefixes = ["10.0.0.0/8","192.168.0.0/16","172.16.0.0/12"]
+  }
+
+  
 }
 
 #Attach NSG to Interfaces

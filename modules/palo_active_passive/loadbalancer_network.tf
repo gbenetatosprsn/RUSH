@@ -5,7 +5,7 @@
 #Ingress PRD LB
 
 resource "azurerm_public_ip" "ext_p_lbingress_pip" {
-  name                = "rush-pip-lbingress-p-${var.location_short}-00"
+  name                = "rush-pip-lbuntrust-p-${var.location_short}-00"
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
   allocation_method   = "Static"
@@ -15,7 +15,7 @@ resource "azurerm_public_ip" "ext_p_lbingress_pip" {
 resource "azurerm_lb" "ext_p_lbingress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbe-extingress-p-${var.location_short}-00"
+  name                = "rush-lbe-extuntrust-p-${var.location_short}-00"
   sku                 = "Standard"
   
   frontend_ip_configuration {
@@ -88,7 +88,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "ext_p_bac
 #Ingress QAS LB
 
 resource "azurerm_public_ip" "ext_q_lbingress_pip" {
-  name                = "rush-pip-lbingress-q-${var.location_short}-00"
+  name                = "rush-pip-lbuntrust-q-${var.location_short}-00"
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
   allocation_method   = "Static"
@@ -98,7 +98,7 @@ resource "azurerm_public_ip" "ext_q_lbingress_pip" {
 resource "azurerm_lb" "ext_q_lbingress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbe-extingress-q-${var.location_short}-00"
+  name                = "rush-lbe-extuntrust-q-${var.location_short}-00"
   sku                 = "Standard"
   
   frontend_ip_configuration {
@@ -174,7 +174,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "ext_q_ing
 resource "azurerm_lb" "ext_p_lbegress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbi-extegress-p-${var.location_short}-00"
+  name                = "rush-lbi-exttrust-p-${var.location_short}-00"
   sku                 = "Standard"
 
   frontend_ip_configuration {
@@ -229,7 +229,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "ext_p_egr
 resource "azurerm_lb" "ext_q_lbegress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbi-extegress-q-${var.location_short}-00"
+  name                = "rush-lbi-exttrust-q-${var.location_short}-00"
   sku                 = "Standard"
 
   frontend_ip_configuration {
@@ -286,7 +286,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "ext_q_egr
 resource "azurerm_lb" "int_p_lbegress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbi-integress-p-${var.location_short}-00"
+  name                = "rush-lbi-inttrust-p-${var.location_short}-00"
   sku                 = "Standard"
 
   frontend_ip_configuration {
@@ -341,7 +341,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "int_p_egr
 resource "azurerm_lb" "int_q_lbegress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbi-integress-q-${var.location_short}-00"
+  name                = "rush-lbi-inttrust-q-${var.location_short}-00"
   sku                 = "Standard"
 
   frontend_ip_configuration {
