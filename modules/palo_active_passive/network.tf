@@ -32,7 +32,7 @@ resource "azurerm_subnet" "private00" {
 }
 
 resource "azurerm_subnet" "public00" {
-  name                 = "${var.coid}-subnet-public00-p-${var.location_short}-00"
+  name                 = "${var.coid}-subnet-public-p-${var.location_short}-00"
   virtual_network_name = azurerm_virtual_network.vnet00.name
   resource_group_name  = var.resource_group_networking.name
   address_prefixes     = var.public_space_prefix
@@ -81,6 +81,15 @@ resource "azurerm_virtual_hub_connection" "connection_hub" {
   name                      = "${var.coid}-peer-hubnetwork-p-${var.location_short}-00"
   virtual_hub_id            = azurerm_virtual_hub.hub.id
   remote_virtual_network_id = azurerm_virtual_network.vnet00.id
+}
+
+resource "azurerm_express_route_gateway" "ergateway" {
+  name                = "${var.coid}-ergateway-hubnetwork-p-${var.location_short}-00"
+  resource_group_name = var.resource_group_networking.name
+  location            = var.resource_group_networking.location
+  virtual_hub_id      = azurerm_virtual_hub.hub.id
+  scale_units         = 5
+
 }
 
 #----------------------------------------------------------------------------------------------------------------------
