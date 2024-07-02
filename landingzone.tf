@@ -30,7 +30,7 @@ module "palo_active_passive" {
 #----------------------------------------------------------------------------------------------------------------------
 
 resource "azurerm_resource_group" "resource_group_compute00" {
-  name     = "rush-rg-compute-p-${var.location_short}-00"
+  name     = "rush-rg-compute-p-${local.location_short}-00"
   location = local.location
 
   lifecycle {
@@ -42,7 +42,7 @@ resource "azurerm_resource_group" "resource_group_compute00" {
 }
 
 resource "azurerm_resource_group" "resource_group_networking00" {
-  name     = "rush-rg-network-p-${var.location_short}-00"
+  name     = "rush-rg-network-p-${local.location_short}-00"
   location = local.location
 
   lifecycle {
@@ -54,7 +54,7 @@ resource "azurerm_resource_group" "resource_group_networking00" {
 }
 
 resource "azurerm_resource_group" "resource_group_management00" {
-  name     = "rush-rg-management-p-${var.location_short}-00"
+  name     = "rush-rg-management-p-${local.location_short}-00"
   location = local.location
 
   lifecycle {
@@ -66,7 +66,7 @@ resource "azurerm_resource_group" "resource_group_management00" {
 }
 
 resource "azurerm_resource_group" "resource_group_storage00" {
-  name     = "rush-rg-storage-p-${var.location_short}-00"
+  name     = "rush-rg-storage-p-${local.location_short}-00"
   location = local.location
 
   lifecycle {
