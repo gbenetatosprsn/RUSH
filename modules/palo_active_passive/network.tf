@@ -72,7 +72,7 @@ resource "azurerm_vpn_gateway" "hub_gateway" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
   virtual_hub_id      = azurerm_virtual_hub.hub.id
-  scale_unit          = 4
+  scale_unit          = 2
 }
 
 
@@ -88,7 +88,7 @@ resource "azurerm_express_route_gateway" "ergateway" {
   resource_group_name = var.resource_group_networking.name
   location            = var.resource_group_networking.location
   virtual_hub_id      = azurerm_virtual_hub.hub.id
-  scale_units         = 5
+  scale_units         = 1
 
 }
 
