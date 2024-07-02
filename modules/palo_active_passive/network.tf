@@ -3,7 +3,7 @@
 #----------------------------------------------------------------------------------------------------------------------
 
 resource "azurerm_virtual_network" "vnet00" {
-  name                = "${var.coid}-vnet-hubnetwork-p-${var.location_short}-00"
+  name                = "vnet-hubnetwork-p-${var.location_short}"
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
   address_space       = var.hub_address_space
@@ -11,35 +11,35 @@ resource "azurerm_virtual_network" "vnet00" {
 
 # Create Subnets
 resource "azurerm_subnet" "management00" {
-  name                 = "${var.coid}-subnet-mgmt-p-${var.location_short}-00"
+  name                 = "subnet-mgmt-p-${var.location_short}"
   virtual_network_name = azurerm_virtual_network.vnet00.name
   resource_group_name  = var.resource_group_networking.name
   address_prefixes     = var.mgmt_space_prefix
 }
 
 resource "azurerm_subnet" "ha200" {
-  name                 = "${var.coid}-subnet-ha2-p-${var.location_short}-00"
+  name                 = "subnet-ha2-p-${var.location_short}"
   virtual_network_name = azurerm_virtual_network.vnet00.name
   resource_group_name  = var.resource_group_networking.name
   address_prefixes     = var.ha2_space_prefix
 }
 
 resource "azurerm_subnet" "private00" {
-  name                 = "${var.coid}-subnet-private-p-${var.location_short}-00"
+  name                 = "subnet-private-p-${var.location_short}"
   virtual_network_name = azurerm_virtual_network.vnet00.name
   resource_group_name  = var.resource_group_networking.name
   address_prefixes     = var.private_space_prefix
 }
 
 resource "azurerm_subnet" "public00" {
-  name                 = "${var.coid}-subnet-public-p-${var.location_short}-00"
+  name                 = "subnet-public-p-${var.location_short}"
   virtual_network_name = azurerm_virtual_network.vnet00.name
   resource_group_name  = var.resource_group_networking.name
   address_prefixes     = var.public_space_prefix
 }
 
 resource "azurerm_subnet" "loadbalancer00" {
-  name                 = "${var.coid}-subnet-loadbalancers-p-${var.location_short}-00"
+  name                 = "subnet-loadbalancer-p-${var.location_short}"
   virtual_network_name = azurerm_virtual_network.vnet00.name
   resource_group_name  = var.resource_group_networking.name
   address_prefixes     = var.lb_space_prefix
@@ -51,7 +51,7 @@ resource "azurerm_subnet" "loadbalancer00" {
 
 # Creation of vWAN managed service
 resource "azurerm_virtual_wan" "vwan" {
-  name                           = "${var.coid}-vwan-hubnetwork-p-${var.location_short}-00"
+  name                           = "vwan-hubnetwork-p-${var.location_short}"
   resource_group_name            = var.resource_group_networking.name
   location                       = var.resource_group_networking.location
   type                           = "Standard"
@@ -60,7 +60,7 @@ resource "azurerm_virtual_wan" "vwan" {
 
 # Creation of vHUB in default location - For DR we need to add second HUB
 resource "azurerm_virtual_hub" "hub" {
-  name                = "${var.coid}-vhub-hubnetwork-p-${var.location_short}-00"
+  name                = "vhub-hubnetwork-p-${var.location_short}"
   resource_group_name = var.resource_group_networking.name
   location            = var.resource_group_networking.location
   virtual_wan_id      = azurerm_virtual_wan.vwan.id
@@ -68,7 +68,7 @@ resource "azurerm_virtual_hub" "hub" {
 }
 
 resource "azurerm_vpn_gateway" "hub_gateway" {
-  name                = "${var.coid}-gateway-hubnetwork-p-${var.location_short}-00"
+  name                = "gateway-hubnetwork-p-${var.location_short}"
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
   virtual_hub_id      = azurerm_virtual_hub.hub.id
@@ -78,13 +78,13 @@ resource "azurerm_vpn_gateway" "hub_gateway" {
 
 # This is the vWAN peer to Firewall vnet - Required for traffic fitlering from External Connections. That ONLy works when we are within same Tenant.
 resource "azurerm_virtual_hub_connection" "connection_hub" {
-  name                      = "${var.coid}-peer-hubnetwork-p-${var.location_short}-00"
+  name                      = "peer-hubnetwork-p-${var.location_short}"
   virtual_hub_id            = azurerm_virtual_hub.hub.id
   remote_virtual_network_id = azurerm_virtual_network.vnet00.id
 }
 
 resource "azurerm_express_route_gateway" "ergateway" {
-  name                = "${var.coid}-ergateway-hubnetwork-p-${var.location_short}-00"
+  name                = "ergw-hubnetwork-p-${var.location_short}"
   resource_group_name = var.resource_group_networking.name
   location            = var.resource_group_networking.location
   virtual_hub_id      = azurerm_virtual_hub.hub.id
@@ -99,7 +99,7 @@ resource "azurerm_express_route_gateway" "ergateway" {
 # NAT GW Public IP
 
 resource "azurerm_public_ip" "ext_natgw_pip" {
-  name                = "rush-pip-natgw-p-${var.location_short}-00"
+  name                = "pip-natgw-p-${var.location_short}"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
   allocation_method   = "Static"
@@ -109,7 +109,7 @@ resource "azurerm_public_ip" "ext_natgw_pip" {
 # Build NAT Gateway
 
 resource "azurerm_nat_gateway" "ext_natgw" {
-  name                    = "rush-natgw-extnatgw-p-${var.location_short}-00"
+  name                    = "ng-extnatgw-p-${var.location_short}"
   location                = var.resource_group_networking.location
   resource_group_name     = var.resource_group_networking.name
   sku_name                = "Standard"

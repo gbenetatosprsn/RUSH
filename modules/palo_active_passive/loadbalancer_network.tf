@@ -5,7 +5,7 @@
 #Ingress PRD LB
 
 resource "azurerm_public_ip" "ext_p_lbingress_pip" {
-  name                = "rush-pip-lbuntrust-p-${var.location_short}-00"
+  name                = "pip-lbuntrust-p-${var.location_short}"
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
   allocation_method   = "Static"
@@ -15,7 +15,7 @@ resource "azurerm_public_ip" "ext_p_lbingress_pip" {
 resource "azurerm_lb" "ext_p_lbingress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbe-extuntrust-p-${var.location_short}-00"
+  name                = "lbe-extuntrust-p-${var.location_short}"
   sku                 = "Standard"
   
   frontend_ip_configuration {
@@ -71,8 +71,8 @@ resource "azurerm_lb_rule" "ext_p_udp" {
   load_distribution              = "SourceIPProtocol"
 }
 
-resource "azurerm_network_interface_backend_address_pool_association" "ext_p_backend00" {
-  network_interface_id    = azurerm_network_interface.ext_p_public00.id
+resource "azurerm_network_interface_backend_address_pool_association" "ext_p_backend0" {
+  network_interface_id    = azurerm_network_interface.ext_p_public0.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_p_lbingress_backend_address_pool.id
 }
@@ -88,7 +88,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "ext_p_bac
 #Ingress QAS LB
 
 resource "azurerm_public_ip" "ext_q_lbingress_pip" {
-  name                = "rush-pip-lbuntrust-q-${var.location_short}-00"
+  name                = "pip-lbuntrust-q-${var.location_short}"
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
   allocation_method   = "Static"
@@ -98,7 +98,7 @@ resource "azurerm_public_ip" "ext_q_lbingress_pip" {
 resource "azurerm_lb" "ext_q_lbingress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbe-extuntrust-q-${var.location_short}-00"
+  name                = "lbe-extuntrust-q-${var.location_short}"
   sku                 = "Standard"
   
   frontend_ip_configuration {
@@ -155,8 +155,8 @@ resource "azurerm_lb_rule" "ext_q_udp" {
   load_distribution              = "SourceIPProtocol"
 }
 
-resource "azurerm_network_interface_backend_address_pool_association" "ext_q_ingress_backend00" {
-  network_interface_id    = azurerm_network_interface.ext_q_public00.id
+resource "azurerm_network_interface_backend_address_pool_association" "ext_q_ingress_backend0" {
+  network_interface_id    = azurerm_network_interface.ext_q_public0.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_q_lbingress_backend_address_pool.id
 }
@@ -174,12 +174,12 @@ resource "azurerm_network_interface_backend_address_pool_association" "ext_q_ing
 resource "azurerm_lb" "ext_p_lbegress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbi-exttrust-p-${var.location_short}-00"
+  name                = "lbi-exttrust-p-${var.location_short}"
   sku                 = "Standard"
 
   frontend_ip_configuration {
     name      = "LoadBalancerIP"
-    subnet_id = azurerm_subnet.loadbalancer00.id
+    subnet_id = azurerm_subnet.loadbalancer0.id
   }
 }
 
@@ -210,8 +210,8 @@ resource "azurerm_lb_rule" "ext_p_allports" {
   enable_floating_ip             = true
 }
 
-resource "azurerm_network_interface_backend_address_pool_association" "ext_p_egress_backend00" {
-  network_interface_id    = azurerm_network_interface.ext_p_trust00.id
+resource "azurerm_network_interface_backend_address_pool_association" "ext_p_egress_backend0" {
+  network_interface_id    = azurerm_network_interface.ext_p_trust0.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_p_lbegress_backend_address_pool.id
 }
@@ -229,12 +229,12 @@ resource "azurerm_network_interface_backend_address_pool_association" "ext_p_egr
 resource "azurerm_lb" "ext_q_lbegress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbi-exttrust-q-${var.location_short}-00"
+  name                = "lbi-exttrust-q-${var.location_short}-0"
   sku                 = "Standard"
 
   frontend_ip_configuration {
     name      = "LoadBalancerIP"
-    subnet_id = azurerm_subnet.loadbalancer00.id
+    subnet_id = azurerm_subnet.loadbalancer0.id
   }
 }
 
@@ -265,8 +265,8 @@ resource "azurerm_lb_rule" "ext_q_allports" {
   enable_floating_ip             = true
 }
 
-resource "azurerm_network_interface_backend_address_pool_association" "ext_q_egress_backend00" {
-  network_interface_id    = azurerm_network_interface.ext_q_trust00.id
+resource "azurerm_network_interface_backend_address_pool_association" "ext_q_egress_backend0" {
+  network_interface_id    = azurerm_network_interface.ext_q_trust0.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_q_lbegress_backend_address_pool.id
 }
@@ -286,12 +286,12 @@ resource "azurerm_network_interface_backend_address_pool_association" "ext_q_egr
 resource "azurerm_lb" "int_p_lbegress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbi-inttrust-p-${var.location_short}-00"
+  name                = "lbi-inttrust-p-${var.location_short}"
   sku                 = "Standard"
 
   frontend_ip_configuration {
     name      = "LoadBalancerIP"
-    subnet_id = azurerm_subnet.loadbalancer00.id
+    subnet_id = azurerm_subnet.loadbalancer0.id
   }
 }
 
@@ -322,8 +322,8 @@ resource "azurerm_lb_rule" "int_p_allports" {
   enable_floating_ip             = true
 }
 
-resource "azurerm_network_interface_backend_address_pool_association" "int_p_egress_backend00" {
-  network_interface_id    = azurerm_network_interface.int_p_trust00.id
+resource "azurerm_network_interface_backend_address_pool_association" "int_p_egress_backend0" {
+  network_interface_id    = azurerm_network_interface.int_p_trust0.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.int_p_lbegress_backend_address_pool.id
 }
@@ -341,12 +341,12 @@ resource "azurerm_network_interface_backend_address_pool_association" "int_p_egr
 resource "azurerm_lb" "int_q_lbegress" {
   location            = var.resource_group_networking.location
   resource_group_name = var.resource_group_networking.name
-  name                = "rush-lbi-inttrust-q-${var.location_short}-00"
+  name                = "lbi-inttrust-q-${var.location_short}"
   sku                 = "Standard"
 
   frontend_ip_configuration {
     name      = "LoadBalancerIP"
-    subnet_id = azurerm_subnet.loadbalancer00.id
+    subnet_id = azurerm_subnet.loadbalancer0.id
   }
 }
 
@@ -377,8 +377,8 @@ resource "azurerm_lb_rule" "int_q_allports" {
   enable_floating_ip             = true
 }
 
-resource "azurerm_network_interface_backend_address_pool_association" "int_q_egress_backend00" {
-  network_interface_id    = azurerm_network_interface.int_q_trust00.id
+resource "azurerm_network_interface_backend_address_pool_association" "int_q_egress_backend0" {
+  network_interface_id    = azurerm_network_interface.int_q_trust0.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.int_q_lbegress_backend_address_pool.id
 }

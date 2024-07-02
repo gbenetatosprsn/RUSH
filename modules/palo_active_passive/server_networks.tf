@@ -5,7 +5,7 @@
 # Public IP Address:
 #Internal Firewalls
 resource "azurerm_public_ip" "int_p_management00" {
-  name                = "rush-pip-intmanagement-p-${var.location_short}-00"
+  name                = "pip-intmanagement-p-${var.location_short}-0"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
   allocation_method   = "Static"
@@ -13,7 +13,7 @@ resource "azurerm_public_ip" "int_p_management00" {
 }
 
 resource "azurerm_public_ip" "int_p_management01" {
-  name                = "rush-pip-intmanagement-p-${var.location_short}-01"
+  name                = "pip-intmanagement-p-${var.location_short}-1"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
   allocation_method   = "Static"
@@ -21,7 +21,7 @@ resource "azurerm_public_ip" "int_p_management01" {
 }
 
 resource "azurerm_public_ip" "int_q_management00" {
-  name                = "rush-pip-intmanagement-q-${var.location_short}-00"
+  name                = "pip-intmanagement-q-${var.location_short}-0"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
   allocation_method   = "Static"
@@ -29,7 +29,7 @@ resource "azurerm_public_ip" "int_q_management00" {
 }
 
 resource "azurerm_public_ip" "int_q_management01" {
-  name                = "rush-pip-intmanagement-q-${var.location_short}-01"
+  name                = "pip-intmanagement-q-${var.location_short}-1"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
   allocation_method   = "Static"
@@ -38,7 +38,7 @@ resource "azurerm_public_ip" "int_q_management01" {
 
 #External Firewalls
 resource "azurerm_public_ip" "ext_p_management00" {
-  name                = "rush-pip-extmanagement-p-${var.location_short}-00"
+  name                = "pip-extmanagement-p-${var.location_short}-0"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
   allocation_method   = "Static"
@@ -46,7 +46,7 @@ resource "azurerm_public_ip" "ext_p_management00" {
 }
 
 resource "azurerm_public_ip" "ext_p_management01" {
-  name                = "rush-pip-extmanagement-p-${var.location_short}-01"
+  name                = "pip-extmanagement-p-${var.location_short}-1"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
   allocation_method   = "Static"
@@ -54,7 +54,7 @@ resource "azurerm_public_ip" "ext_p_management01" {
 }
 
 resource "azurerm_public_ip" "ext_q_management00" {
-  name                = "rush-pip-extmanagement-q-${var.location_short}-00"
+  name                = "pip-extmanagement-q-${var.location_short}-0"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
   allocation_method   = "Static"
@@ -62,7 +62,7 @@ resource "azurerm_public_ip" "ext_q_management00" {
 }
 
 resource "azurerm_public_ip" "ext_q_management01" {
-  name                = "rush-pip-extmanagement-q-${var.location_short}-01"
+  name                = "pip-extmanagement-q-${var.location_short}-1"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
   allocation_method   = "Static"
@@ -73,7 +73,7 @@ resource "azurerm_public_ip" "ext_q_management01" {
 # Network Interface:
 ##Internal Firewalls
 resource "azurerm_network_interface" "int_p_management00" {
-  name                 = "rush-nic-intmanagement-p-${var.location_short}-00"
+  name                 = "nic-intmanagement-p-${var.location_short}-0"
   location             = var.resource_group_compute.location
   resource_group_name  = var.resource_group_compute.name
   enable_ip_forwarding = false
@@ -88,7 +88,7 @@ resource "azurerm_network_interface" "int_p_management00" {
 }
 
 resource "azurerm_network_interface" "int_p_management01" {
-  name                 = "rush-nic-intmanagement-p-${var.location_short}-01"
+  name                 = "nic-intmanagement-p-${var.location_short}-1"
   location             = var.resource_group_compute.location
   resource_group_name  = var.resource_group_compute.name
   enable_ip_forwarding = false
@@ -103,7 +103,7 @@ resource "azurerm_network_interface" "int_p_management01" {
 }
 
 resource "azurerm_network_interface" "int_q_management00" {
-  name                 = "rush-nic-intmanagement-q-${var.location_short}-00"
+  name                 = "nic-intmanagement-q-${var.location_short}-0"
   location             = var.resource_group_compute.location
   resource_group_name  = var.resource_group_compute.name
   enable_ip_forwarding = false
@@ -118,7 +118,7 @@ resource "azurerm_network_interface" "int_q_management00" {
 }
 
 resource "azurerm_network_interface" "int_q_management01" {
-  name                 = "rush-nic-intmanagement-q-${var.location_short}-01"
+  name                 = "nic-intmanagement-q-${var.location_short}-1"
   location             = var.resource_group_compute.location
   resource_group_name  = var.resource_group_compute.name
   enable_ip_forwarding = false
@@ -135,7 +135,7 @@ resource "azurerm_network_interface" "int_q_management01" {
 ##External Firewalls
 
 resource "azurerm_network_interface" "ext_p_management00" {
-  name                 = "rush-nic-extmanagement-p-${var.location_short}-00"
+  name                 = "nic-extmanagement-p-${var.location_short}-0"
   location             = var.resource_group_compute.location
   resource_group_name  = var.resource_group_compute.name
   enable_ip_forwarding = false
@@ -150,7 +150,7 @@ resource "azurerm_network_interface" "ext_p_management00" {
 }
 
 resource "azurerm_network_interface" "ext_p_management01" {
-  name                 = "rush-nic-extmanagement-p-${var.location_short}-01"
+  name                 = "nic-extmanagement-p-${var.location_short}-1"
   location             = var.resource_group_compute.location
   resource_group_name  = var.resource_group_compute.name
   enable_ip_forwarding = false
@@ -165,7 +165,7 @@ resource "azurerm_network_interface" "ext_p_management01" {
 }
 
 resource "azurerm_network_interface" "ext_q_management00" {
-  name                 = "rush-nic-extmanagement-q-${var.location_short}-00"
+  name                 = "nic-extmanagement-q-${var.location_short}-0"
   location             = var.resource_group_compute.location
   resource_group_name  = var.resource_group_compute.name
   enable_ip_forwarding = false
@@ -180,7 +180,7 @@ resource "azurerm_network_interface" "ext_q_management00" {
 }
 
 resource "azurerm_network_interface" "ext_q_management01" {
-  name                 = "rush-nic-extmanagement-q-${var.location_short}-01"
+  name                 = "nic-extmanagement-q-${var.location_short}-1"
   location             = var.resource_group_compute.location
   resource_group_name  = var.resource_group_compute.name
   enable_ip_forwarding = false
@@ -197,7 +197,7 @@ resource "azurerm_network_interface" "ext_q_management01" {
 # Network Security Group:
 ## Internal FW
 resource "azurerm_network_security_group" "int_management00" {
-  name                = "rush-nsg-intmanagement-${var.location_short}-00"
+  name                = "nsg-intmanagement-${var.location_short}"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
 
@@ -303,7 +303,7 @@ resource "azurerm_network_security_group" "int_management00" {
 
 ## External FW
 resource "azurerm_network_security_group" "ext_management00" {
-  name                = "rush-nsg-extmanagement-${var.location_short}-00"
+  name                = "nsg-extmanagement-${var.location_short}"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
 
@@ -477,7 +477,7 @@ resource "azurerm_public_ip" "ethernet01_0_1" {
 # Network Interface
 # Internal Firewalls
 resource "azurerm_network_interface" "int_p_public00" {
-  name                          = "rush-nic-intpublic-p-${var.location_short}-00"
+  name                          = "nic-intpublic-p-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -492,7 +492,7 @@ resource "azurerm_network_interface" "int_p_public00" {
 }
 
 resource "azurerm_network_interface" "int_p_public01" {
-  name                          = "rush-nic-intpublic-p-${var.location_short}-01"
+  name                          = "nic-intpublic-p-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -507,7 +507,7 @@ resource "azurerm_network_interface" "int_p_public01" {
 }
 
 resource "azurerm_network_interface" "int_q_public00" {
-  name                          = "rush-nic-intpublic-q-${var.location_short}-00"
+  name                          = "nic-intpublic-q-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -522,7 +522,7 @@ resource "azurerm_network_interface" "int_q_public00" {
 }
 
 resource "azurerm_network_interface" "int_q_public01" {
-  name                          = "rush-nic-intpublic-q-${var.location_short}-01"
+  name                          = "nic-intpublic-q-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -539,7 +539,7 @@ resource "azurerm_network_interface" "int_q_public01" {
 
 # External Firewalls
 resource "azurerm_network_interface" "ext_p_public00" {
-  name                          = "rush-nic-extpublic-p-${var.location_short}-00"
+  name                          = "nic-extpublic-p-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -554,7 +554,7 @@ resource "azurerm_network_interface" "ext_p_public00" {
 }
 
 resource "azurerm_network_interface" "ext_p_public01" {
-  name                          = "rush-nic-extpublic-p-${var.location_short}-01"
+  name                          = "nic-extpublic-p-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -569,7 +569,7 @@ resource "azurerm_network_interface" "ext_p_public01" {
 }
 
 resource "azurerm_network_interface" "ext_q_public00" {
-  name                          = "rush-nic-extpublic-q-${var.location_short}-00"
+  name                          = "nic-extpublic-q-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -584,7 +584,7 @@ resource "azurerm_network_interface" "ext_q_public00" {
 }
 
 resource "azurerm_network_interface" "ext_q_public01" {
-  name                          = "rush-nic-extpublic-q-${var.location_short}-01"
+  name                          = "nic-extpublic-q-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -602,7 +602,7 @@ resource "azurerm_network_interface" "ext_q_public01" {
 #Data NSG
 
 resource "azurerm_network_security_group" "data" {
-  name                = "rush-nsg-data-${var.location_short}-00"
+  name                = "nsg-data-${var.location_short}"
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
 
@@ -683,7 +683,7 @@ resource "azurerm_network_interface_security_group_association" "ext_q_public_01
 # Network Interface
 ## Internal Firewalls
 resource "azurerm_network_interface" "int_p_trust00" {
-  name                          = "rush-nic-inttrust-p-${var.location_short}-00"
+  name                          = "nic-inttrust-p-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -699,7 +699,7 @@ resource "azurerm_network_interface" "int_p_trust00" {
 }
 
 resource "azurerm_network_interface" "int_p_trust01" {
-  name                          = "rush-nic-inttrust-p-${var.location_short}-01"
+  name                          = "nic-inttrust-p-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -715,7 +715,7 @@ resource "azurerm_network_interface" "int_p_trust01" {
 }
 
 resource "azurerm_network_interface" "int_q_trust00" {
-  name                          = "rush-nic-inttrust-q-${var.location_short}-00"
+  name                          = "nic-inttrust-q-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -731,7 +731,7 @@ resource "azurerm_network_interface" "int_q_trust00" {
 }
 
 resource "azurerm_network_interface" "int_q_trust01" {
-  name                          = "rush-nic-inttrust-q-${var.location_short}-01"
+  name                          = "nic-inttrust-q-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -748,7 +748,7 @@ resource "azurerm_network_interface" "int_q_trust01" {
 
 ## External Firewalls
 resource "azurerm_network_interface" "ext_p_trust00" {
-  name                          = "rush-nic-exttrust-p-${var.location_short}-00"
+  name                          = "nic-exttrust-p-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -764,7 +764,7 @@ resource "azurerm_network_interface" "ext_p_trust00" {
 }
 
 resource "azurerm_network_interface" "ext_p_trust01" {
-  name                          = "rush-nic-exttrust-p-${var.location_short}-01"
+  name                          = "nic-exttrust-p-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -780,7 +780,7 @@ resource "azurerm_network_interface" "ext_p_trust01" {
 }
 
 resource "azurerm_network_interface" "ext_q_trust00" {
-  name                          = "rush-nic-exttrust-q-${var.location_short}-00"
+  name                          = "nic-exttrust-q-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -796,7 +796,7 @@ resource "azurerm_network_interface" "ext_q_trust00" {
 }
 
 resource "azurerm_network_interface" "ext_q_trust01" {
-  name                          = "rush-nic-exttrust-q-${var.location_short}-01"
+  name                          = "nic-exttrust-q-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -862,7 +862,7 @@ resource "azurerm_network_interface_security_group_association" "ext_q_trust_01"
 # Network Interface
 ## Internal Firewalls
 resource "azurerm_network_interface" "int_p_ha00" {
-  name                          = "rush-nic-intha2-p-${var.location_short}-00"
+  name                          = "nic-intha2-p-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -877,7 +877,7 @@ resource "azurerm_network_interface" "int_p_ha00" {
 }
 
 resource "azurerm_network_interface" "int_p_ha01" {
-  name                          = "rush-nic-intha2-p-${var.location_short}-01"
+  name                          = "nic-intha2-p-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -892,7 +892,7 @@ resource "azurerm_network_interface" "int_p_ha01" {
 }
   
   resource "azurerm_network_interface" "int_q_ha00" {
-  name                          = "rush-nic-intha2-q-${var.location_short}-00"
+  name                          = "nic-intha2-q-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -907,7 +907,7 @@ resource "azurerm_network_interface" "int_p_ha01" {
 }
 
 resource "azurerm_network_interface" "int_q_ha01" {
-  name                          = "rush-nic-intha2-q-${var.location_short}-01"
+  name                          = "nic-intha2-q-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -924,7 +924,7 @@ resource "azurerm_network_interface" "int_q_ha01" {
 ##External Firewall
 
 resource "azurerm_network_interface" "ext_p_ha00" {
-  name                          = "rush-nic-extha2-p-${var.location_short}-00"
+  name                          = "nic-extha2-p-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -939,7 +939,7 @@ resource "azurerm_network_interface" "ext_p_ha00" {
 }
 
 resource "azurerm_network_interface" "ext_p_ha01" {
-  name                          = "rush-nic-extha2-p-${var.location_short}-01"
+  name                          = "nic-extha2-p-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -953,7 +953,7 @@ resource "azurerm_network_interface" "ext_p_ha01" {
   }
 }
   resource "azurerm_network_interface" "ext_q_ha00" {
-  name                          = "rush-nic-extha2-q-${var.location_short}-00"
+  name                          = "nic-extha2-q-${var.location_short}-0"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -968,7 +968,7 @@ resource "azurerm_network_interface" "ext_p_ha01" {
 }
 
 resource "azurerm_network_interface" "ext_q_ha01" {
-  name                          = "rush-nic-extha2-q-${var.location_short}-01"
+  name                          = "nic-extha2-q-${var.location_short}-1"
   location                      = var.resource_group_compute.location
   resource_group_name           = var.resource_group_compute.name
   enable_ip_forwarding          = true
@@ -999,7 +999,7 @@ resource "azurerm_linux_virtual_machine" "int_p_vmseries00" {
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
 
-  name = "rush-vm-intpa-p-${var.location_short}-00"
+  name = "vm-intpa-p-${var.location_short}-0"
 
   # Availabilty Zone:
   zone = "1"
@@ -1035,16 +1035,14 @@ resource "azurerm_linux_virtual_machine" "int_p_vmseries00" {
   }
 
   os_disk {
-    name                 = "${var.coid}osdiskintpap${var.location_short}00"
+    name                 = "${var.coid}osdiskintpap${var.location_short}0"
     caching              = "ReadWrite"
     storage_account_type = "Premium_LRS"
   }
 
   tags = {
-    protera_type = "Network Device"
-    protera_coid = var.coid
-    protera_apid = "NTWK"
-    protera_env  = var.environment
+    description = "Palo Alto Firewall Internal Production"
+    environment = "p"
   }
 }
 
@@ -1055,7 +1053,7 @@ resource "azurerm_linux_virtual_machine" "int_p_vmseries01" {
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
 
-  name = "rush-vm-intpa-p-${var.location_short}-00"
+  name = "vm-intpa-p-${var.location_short}-1"
 
   # Availabilty Zone:
   zone = "2"
@@ -1091,16 +1089,14 @@ resource "azurerm_linux_virtual_machine" "int_p_vmseries01" {
   }
 
   os_disk {
-    name                 = "${var.coid}osdiskintpap${var.location_short}01"
+    name                 = "${var.coid}osdiskintpap${var.location_short}1"
     caching              = "ReadWrite"
     storage_account_type = "Premium_LRS"
   }
 
   tags = {
-    protera_type = "Network Device"
-    protera_coid = var.coid
-    protera_apid = "NTWK"
-    protera_env  = var.environment
+    description = "Palo Alto Firewall Internal Production"
+    environment = "p"
   }
 }
 
@@ -1112,7 +1108,7 @@ resource "azurerm_linux_virtual_machine" "int_q_vmseries00" {
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
 
-  name = "rush-vm-intpa-q-${var.location_short}-00"
+  name = "vm-intpa-q-${var.location_short}-0"
 
   # Availabilty Zone:
   zone = "1"
@@ -1148,16 +1144,14 @@ resource "azurerm_linux_virtual_machine" "int_q_vmseries00" {
   }
 
   os_disk {
-    name                 = "${var.coid}osdiskintpaq${var.location_short}00"
+    name                 = "${var.coid}osdiskintpaq${var.location_short}0"
     caching              = "ReadWrite"
     storage_account_type = "Premium_LRS"
   }
 
   tags = {
-    protera_type = "Network Device"
-    protera_coid = var.coid
-    protera_apid = "NTWK"
-    protera_env  = var.environment
+    description = "Palo Alto Firewall Internal Non PRD"
+    environment = "q"
   }
 }
 
@@ -1168,7 +1162,7 @@ resource "azurerm_linux_virtual_machine" "int_q_vmseries01" {
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
 
-  name = "rush-vm-intpa-q-${var.location_short}-01"
+  name = "vm-intpa-q-${var.location_short}-1"
 
   # Availabilty Zone:
   zone = "2"
@@ -1204,16 +1198,14 @@ resource "azurerm_linux_virtual_machine" "int_q_vmseries01" {
   }
 
   os_disk {
-    name                 = "${var.coid}osdiskintpaq${var.location_short}01"
+    name                 = "${var.coid}osdiskintpaq${var.location_short}1"
     caching              = "ReadWrite"
     storage_account_type = "Premium_LRS"
   }
 
   tags = {
-    protera_type = "Network Device"
-    protera_coid = var.coid
-    protera_apid = "NTWK"
-    protera_env  = var.environment
+    description = "Palo Alto Firewall Internal Non PRD"
+    environment = "q"
   }
 }
 
@@ -1226,7 +1218,7 @@ resource "azurerm_linux_virtual_machine" "ext_p_vmseries00" {
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
 
-  name = "rush-vm-extpa-p-${var.location_short}-00"
+  name = "vm-extpa-p-${var.location_short}-0"
 
   # Availabilty Zone:
   zone = "1"
@@ -1262,16 +1254,14 @@ resource "azurerm_linux_virtual_machine" "ext_p_vmseries00" {
   }
 
   os_disk {
-    name                 = "${var.coid}osdiskextpap${var.location_short}00"
+    name                 = "${var.coid}osdiskextpap${var.location_short}0"
     caching              = "ReadWrite"
     storage_account_type = "Premium_LRS"
   }
 
   tags = {
-    protera_type = "Network Device"
-    protera_coid = var.coid
-    protera_apid = "NTWK"
-    protera_env  = var.environment
+    description = "Palo Alto Firewall External Production"
+    environment = "p"
   }
 }
 
@@ -1282,7 +1272,7 @@ resource "azurerm_linux_virtual_machine" "ext_p_vmseries01" {
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
 
-  name = "rush-vm-extpa-p-${var.location_short}-00"
+  name = "vm-extpa-p-${var.location_short}-1"
 
   # Availabilty Zone:
   zone = "2"
@@ -1318,16 +1308,14 @@ resource "azurerm_linux_virtual_machine" "ext_p_vmseries01" {
   }
 
   os_disk {
-    name                 = "${var.coid}osdiskextpap${var.location_short}01"
+    name                 = "${var.coid}osdiskextpap${var.location_short}1"
     caching              = "ReadWrite"
     storage_account_type = "Premium_LRS"
   }
 
   tags = {
-    protera_type = "Network Device"
-    protera_coid = var.coid
-    protera_apid = "NTWK"
-    protera_env  = var.environment
+    description = "Palo Alto Firewall External Production"
+    environment = "p"
   }
 }
 
@@ -1339,7 +1327,7 @@ resource "azurerm_linux_virtual_machine" "ext_q_vmseries00" {
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
 
-  name = "rush-vm-extpa-q-${var.location_short}-00"
+  name = "vm-extpa-q-${var.location_short}-0"
 
   # Availabilty Zone:
   zone = "1"
@@ -1375,16 +1363,14 @@ resource "azurerm_linux_virtual_machine" "ext_q_vmseries00" {
   }
 
   os_disk {
-    name                 = "${var.coid}osdiskextpaq${var.location_short}00"
+    name                 = "${var.coid}osdiskextpaq${var.location_short}0"
     caching              = "ReadWrite"
     storage_account_type = "Premium_LRS"
   }
 
   tags = {
-    protera_type = "Network Device"
-    protera_coid = var.coid
-    protera_apid = "NTWK"
-    protera_env  = var.environment
+    description = "Palo Alto Firewall External Non PRD"
+    environment = "q"
   }
 }
 
@@ -1395,7 +1381,7 @@ resource "azurerm_linux_virtual_machine" "ext_q_vmseries01" {
   location            = var.resource_group_compute.location
   resource_group_name = var.resource_group_compute.name
 
-  name = "rush-vm-extpa-q-${var.location_short}-01"
+  name = "vm-extpa-q-${var.location_short}-1"
 
   # Availabilty Zone:
   zone = "2"
@@ -1431,15 +1417,13 @@ resource "azurerm_linux_virtual_machine" "ext_q_vmseries01" {
   }
 
   os_disk {
-    name                 = "${var.coid}osdiskextpaq${var.location_short}01"
+    name                 = "${var.coid}osdiskextpaq${var.location_short}1"
     caching              = "ReadWrite"
     storage_account_type = "Premium_LRS"
   }
 
   tags = {
-    protera_type = "Network Device"
-    protera_coid = var.coid
-    protera_apid = "NTWK"
-    protera_env  = var.environment
+    description = "Palo Alto Firewall External Non PRD"
+    environment = "q"
   }
 }
