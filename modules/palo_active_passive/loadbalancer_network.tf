@@ -72,7 +72,7 @@ resource "azurerm_lb_rule" "ext_p_udp" {
 }
 
 resource "azurerm_network_interface_backend_address_pool_association" "ext_p_backend0" {
-  network_interface_id    = azurerm_network_interface.ext_p_public0.id
+  network_interface_id    = azurerm_network_interface.ext_p_public00.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_p_lbingress_backend_address_pool.id
 }
@@ -156,7 +156,7 @@ resource "azurerm_lb_rule" "ext_q_udp" {
 }
 
 resource "azurerm_network_interface_backend_address_pool_association" "ext_q_ingress_backend0" {
-  network_interface_id    = azurerm_network_interface.ext_q_public0.id
+  network_interface_id    = azurerm_network_interface.ext_q_public00.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_q_lbingress_backend_address_pool.id
 }
@@ -211,7 +211,7 @@ resource "azurerm_lb_rule" "ext_p_allports" {
 }
 
 resource "azurerm_network_interface_backend_address_pool_association" "ext_p_egress_backend0" {
-  network_interface_id    = azurerm_network_interface.ext_p_trust0.id
+  network_interface_id    = azurerm_network_interface.ext_p_trust00.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_p_lbegress_backend_address_pool.id
 }
@@ -266,7 +266,7 @@ resource "azurerm_lb_rule" "ext_q_allports" {
 }
 
 resource "azurerm_network_interface_backend_address_pool_association" "ext_q_egress_backend0" {
-  network_interface_id    = azurerm_network_interface.ext_q_trust0.id
+  network_interface_id    = azurerm_network_interface.ext_q_trust00.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.ext_q_lbegress_backend_address_pool.id
 }
