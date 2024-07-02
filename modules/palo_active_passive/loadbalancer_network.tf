@@ -179,7 +179,7 @@ resource "azurerm_lb" "ext_p_lbegress" {
 
   frontend_ip_configuration {
     name      = "LoadBalancerIP"
-    subnet_id = azurerm_subnet.loadbalancer0.id
+    subnet_id = azurerm_subnet.loadbalancer00.id
   }
 }
 
@@ -234,7 +234,7 @@ resource "azurerm_lb" "ext_q_lbegress" {
 
   frontend_ip_configuration {
     name      = "LoadBalancerIP"
-    subnet_id = azurerm_subnet.loadbalancer0.id
+    subnet_id = azurerm_subnet.loadbalancer00.id
   }
 }
 
@@ -291,7 +291,7 @@ resource "azurerm_lb" "int_p_lbegress" {
 
   frontend_ip_configuration {
     name      = "LoadBalancerIP"
-    subnet_id = azurerm_subnet.loadbalancer0.id
+    subnet_id = azurerm_subnet.loadbalancer00.id
   }
 }
 
@@ -346,7 +346,7 @@ resource "azurerm_lb" "int_q_lbegress" {
 
   frontend_ip_configuration {
     name      = "LoadBalancerIP"
-    subnet_id = azurerm_subnet.loadbalancer0.id
+    subnet_id = azurerm_subnet.loadbalancer00.id
   }
 }
 
